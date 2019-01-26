@@ -3,19 +3,16 @@ CREATE DATABASE hmwrkdb;
 
 use hmwrkdb;
 
-create table assignments
-(
-	id integer not null auto_increment,
-    assignment_name varchar(250) not null,
-    completed boolean default false,
-    assign_details DESCRIPTION not null VARCHAR(250),
-    primary key (id)
-    
+CREATE TABLE assignments (
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    assignmentName VARCHAR(250) NOT NULL,
+    completed BOOLEAN NOT NULL DEFAULT FALSE,
+    assignmentDetails TEXT NOT NULL,
+    PRIMARY KEY (id)
 );
 
-create table users 
-(
-  id integer not null auto_increment,
-  username varchar(250) not null,
-  primary key (id) 
+CREATE TABLE users (
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    userName VARCHAR(250) NOT NULL,
+    PRIMARY KEY (id)
 );
