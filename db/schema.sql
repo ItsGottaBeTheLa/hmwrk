@@ -13,6 +13,6 @@ CREATE TABLE assignments (
 
 CREATE TABLE users (
     id INTEGER NOT NULL AUTO_INCREMENT,
-    username VARCHAR(250) NOT NULL,
+    userName VARCHAR(250) NOT NULL,
     PRIMARY KEY (id)
 );
