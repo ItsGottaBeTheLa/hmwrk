@@ -5,9 +5,9 @@ use hmwrkdb;
 
 CREATE TABLE assignments (
     id INTEGER NOT NULL AUTO_INCREMENT,
-    assignment_name VARCHAR(250) NOT NULL,
-    completed BOOLEAN DEFAULT FALSE,
-    assign_details TEXT NOT NULL,
+    assignmentName VARCHAR(250) NOT NULL,
+    completed BOOLEAN NOT NULL DEFAULT FALSE,
+    assignmentDetails TEXT NOT NULL,
     PRIMARY KEY (id)
 );
 
