@@ -1,4 +1,4 @@
-insert into assignments (assignmentName, type, completed, assignmentDetails, dueDate, isRequired) values ("Project 2", "Academic", false, "build a basic webpage!", "2019-02-04 23:59:00", ture);
+insert into assignments (assignmentName, type, completed, assignmentDetails, dueDate, isRequired) values ("Project 2", "Academic", false, "build a basic webpage!", "2019-02-04 23:59:00", true);
 insert into assignments (assignmentName, type, completed, assignmentDetails, dueDate, isRequired) values ("Milestone 6: Prepare for a Successful Interview", "Career", false, "build a basic webpage!", "2019-02-13 23:59:00", false);
 insert into assignments (assignmentName, type, completed, assignmentDetails, dueDate, isRequired) values ("Updated Portfolio Page #2", "Academic", false, "build a tic-tac-toe game!", "2019-02-16 23:59:00", true);
 insert into assignments (assignmentName, type, completed, assignmentDetails, dueDate, isRequired) values ("Milestone 7: Employer Ready", "Career", false, "build a tic-tac-toe game!", "2019-02-20 23:59:00", false);
