@@ -2,13 +2,13 @@ var db = require("../models");
 var Sequlize = require("sequelize");
 
 module.exports = function(app) {
-  // Get all assinments
+  // Get all assignments
   app.get("/api/assignment", function(req, res) {
     db.Assignment.findAll({}).then(function(dbAssignment) {
       res.json(dbAssignment);
     });
   });
-  //Get next upcoming addignment
+  //Get next upcoming assignment
   app.get("/api/nextassignment", function(req, res) {
     db.Assignment.findOne({
       where: {
@@ -21,14 +21,14 @@ module.exports = function(app) {
       res.json(dbAssignment);
     });
   });
-  // Create a new example
+  // Create a new assignment
   app.post("/api/assignment", function(req, res) {
     db.Example.create(req.body).then(function(dbAssignment) {
       res.json(dbAssignment);
     });
   });
 
-  // Delete an example by id
+  // Delete an anssignment by id
   app.delete("/api/assignment/:id", function(req, res) {
     db.Example.destroy({ where: { id: req.params.id } }).then(function(
       dbAssignment
