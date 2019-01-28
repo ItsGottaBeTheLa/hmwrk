@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
+  // Get all assinments
   app.get("/api/assignment", function(req, res) {
     db.Assignment.findAll({}).then(function(dbAssignment) {
       res.json(dbAssignment);
