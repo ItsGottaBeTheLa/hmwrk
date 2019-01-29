@@ -6,8 +6,18 @@ use hmwrkdb;
 CREATE TABLE assignments (
     id INTEGER NOT NULL AUTO_INCREMENT,
     assignmentName VARCHAR(250) NOT NULL,
+<<<<<<< HEAD
     completed BOOLEAN NOT NULL DEFAULT FALSE,
     assignmentDetails TEXT NOT NULL,
+=======
+    type VARCHAR(25) NOT NULL,
+    completed BOOLEAN NOT NULL DEFAULT FALSE,
+    assignmentDetails TEXT NOT NULL,
+    dueDate DATETIME NOT NULL,
+    isRequired BOOLEAN NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+>>>>>>> 1ae1358346dbf9d291c5e7eaa7ac39882f1d7082
     PRIMARY KEY (id)
 );
 
