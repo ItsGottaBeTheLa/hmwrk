@@ -1,6 +1,8 @@
+var db = require("../models");
 var passport = require("passport");
 
 module.exports = function(app) {
+  // Load index page
   app.get("/", function(req, res) {
     res.render("home", {
       user: req.user
