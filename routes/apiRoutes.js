@@ -29,11 +29,19 @@ module.exports = function(app) {
   });
 
   // Delete an example by id
+<<<<<<< HEAD
+  app.delete("/api/examples/:id", function(req, res) {
+    db.Example.destroy({ where: { id: req.params.id } }).then(function(
+      dbExample
+    ) {
+      res.json(dbExample);
+=======
   app.delete("/api/assignment/:id", function(req, res) {
     db.Example.destroy({ where: { id: req.params.id } }).then(function(
       dbAssignment
     ) {
       res.json(dbAssignment);
+>>>>>>> 1ae1358346dbf9d291c5e7eaa7ac39882f1d7082
     });
   });
 };

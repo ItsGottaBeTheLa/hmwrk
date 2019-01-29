@@ -11,10 +11,23 @@
   },
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
+    "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "^1.4.3",
     "dotenv": "^6.2.0",
+    "ejs": "^2.6.1",
+=======
+    "dotenv": "^6.2.0",
+>>>>>>> 1ae1358346dbf9d291c5e7eaa7ac39882f1d7082
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "morgan": "^1.9.1",
     "mysql2": "^1.5.3",
+<<<<<<< HEAD
+    "passport": "^0.4.0",
+=======
+>>>>>>> 1ae1358346dbf9d291c5e7eaa7ac39882f1d7082
     "passport-github": "^1.1.0",
     "sequelize": "^4.38.0"
   },
