@@ -1,5 +1,4 @@
 var db = require("../models");
-var Sequlize = require("sequelize");
 
 module.exports = function(app) {
   // Get all assignments
@@ -13,7 +12,7 @@ module.exports = function(app) {
     db.Assignment.findOne({
       where: {
         dueDate: {
-          $gt: Sequlize.fn("NOW")
+          $gt: db.Sequelize.fn("NOW")
         }
       },
       order: [["dueDate", "ASC"]]
