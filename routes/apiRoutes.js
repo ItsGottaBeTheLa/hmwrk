@@ -28,7 +28,7 @@ module.exports = function(app) {
 
   // Create a new assignment
   app.post("/api/assignment", function(req, res) {
-    db.Example.create(req.body).then(function(dbAssignment) {
+    db.Assignment.create(req.body).then(function(dbAssignment) {
       res.json(dbAssignment);
       return;
     });
@@ -36,7 +36,7 @@ module.exports = function(app) {
 
   // Delete an anssignment by id
   app.delete("/api/assignment/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(
+    db.Assignment.destroy({ where: { id: req.params.id } }).then(function(
       dbAssignment
     ) {
       res.json(dbAssignment);

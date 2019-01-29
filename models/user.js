@@ -3,6 +3,10 @@ module.exports = function(sequelize, DataTypes) {
     userName: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    isAdmin: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
     }
   });
   return User;

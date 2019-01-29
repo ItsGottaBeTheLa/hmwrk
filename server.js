@@ -40,7 +40,7 @@ app.use(
 // session.
 app.use(passport.initialize());
 app.use(passport.session());
-
+var adminAccountNames = ["Bgosse1", "verna100", "ItsGottaBeTheLa", "harrysuk"];
 // Passport
 passport.use(
   new GitHubStrategy(
@@ -50,14 +50,24 @@ passport.use(
       callbackURL: "http://localhost:3000/return"
     },
     function(accessToken, refreshToken, profile, cb) {
-      // User.findOrCreate(
-      //   {
-      //     githubId: profile.id
-      //   },
-      //   function(err, user) {
-      //     return cb(err, user);
-      //   }
-      // );
+      var admin = false;
+      for (var i = 0; i < adminAccountNames.length; i++) {
+        if (profile.username === adminAccountNames[i]) {
+          admin = true;
+        }
+      }
+      console.log("profile " + profile.username);
+      db.User.findOrCreate({
+        where: { userName: profile.username },
+        defaults: { isAdmin: admin }
+      }).spread(function(user, created) {
+        console.log(
+          user.get({
+            plain: true
+          })
+        );
+        console.log(created);
+      });
       return cb(null, profile);
     }
   )
