@@ -42,6 +42,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// EJS
+app.use("/public", express.static(process.cwd() + "/public"));
+app.set("view engine", "ejs");
+
 // Passport
 passport.use(
   new GitHubStrategy(
