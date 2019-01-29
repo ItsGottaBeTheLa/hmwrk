@@ -1,7 +1,9 @@
 // Github keys
-module.exports = {
-  github: {
-    clientID: "06fb60bb3f83f9523f17",
-    clientSecret: "f4f5c45f484d6ee3de13c6102f80c0dba12f1cad"
-  }
+exports.github = {
+  clientID: process.env.GITHUB_CLIENT_ID,
+  clientSecret: process.env.GITHUB_CLIENT_SECRET
+};
+//Slack keys
+exports.slack = {
+  signingSecret: process.env.MY_SLACK_SIGNING_SECRET
 };
