@@ -1,10 +1,9 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-var keys = require("./config/keys");
+var keys = require("./config/keys.js");
 var passport = require("passport");
 var GitHubStrategy = require("passport-github").Strategy;
-
 var db = require("./models");
 
 var app = express();
@@ -48,21 +47,21 @@ passport.use(
     {
       clientID: keys.github.clientID,
       clientSecret: keys.github.clientSecret,
-      callbackURL: "http://127.0.0.1:3000/auth/github/callback"
+      callbackURL: "http://localhost:3000/return"
     },
     function(accessToken, refreshToken, profile, cb) {
-      User.findOrCreate(
-        {
-          githubId: profile.id
-        },
-        function(err, user) {
-          return cb(err, user);
-        }
-      );
+      // User.findOrCreate(
+      //   {
+      //     githubId: profile.id
+      //   },
+      //   function(err, user) {
+      //     return cb(err, user);
+      //   }
+      // );
+      return cb(null, profile);
     }
   )
 );
-
 passport.serializeUser(function(user, cb) {
   cb(null, user);
 });
@@ -83,39 +82,6 @@ passport.deserializeUser(function(obj, cb) {
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
-
-// ---------should this go in a routes file????????????????????
-// app.get("/", function(req, res) {
-//   res.render("home", {
-//     user: req.user
-//   });
-// });
-
-// app.get("/login", function(req, res) {
-//   res.render("login");
-// });
-
-// app.get("/login/github", passport.authenticate("github"));
-
-// app.get(
-//   "/return",
-//   passport.authenticate("github", {
-//     failureRedirect: "/login"
-//   }),
-//   function(req, res) {
-//     res.redirect("/");
-//   }
-// );
-
-// app.get("/profile", require("connect-ensure-login").ensureLoggedIn(), function(
-//   req,
-//   res
-// ) {
-//   res.render("profile", {
-//     user: req.user
-//   });
-// });
-// ==============================================================================
 
 var syncOptions = {
   force: false

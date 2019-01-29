@@ -20,10 +20,17 @@ module.exports = function(app) {
       res.json(dbAssignment);
     });
   });
+
+  //slack slash command endpoint
+  app.post("/api/assignment", function(req, res) {
+    res.send("hello");
+  });
+
   // Create a new assignment
   app.post("/api/assignment", function(req, res) {
     db.Example.create(req.body).then(function(dbAssignment) {
       res.json(dbAssignment);
+      return;
     });
   });
 
