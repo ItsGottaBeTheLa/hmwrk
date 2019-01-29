@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-insert into assignments (assignment_name, completed, assign_details) values ("Test 1", false, "build a basic webpage!");
-insert into assignments (assignment_name, completed, assign_details) values ("Test 2", false, "build a tic-tac-toe game!");
-insert into assignments (assignment_name, completed, assign_details) values ("Test 3", false, "build a RPG game!");
-insert into assignments (assignment_name, completed, assign_details) values ("Test 4", false, "build a friendfinder");
-insert into assignments (assignment_name, completed, assign_details) values ("Test 5", false, "build a BurgerApp");
-
-insert into users (username) values ("Test1");
-insert into users (username) values ("Test2");
-insert into users (username) values ("Test3");
-insert into users (username) values ("Test4");
-insert into users (username) values ("Test5");
-=======
 insert into assignments (assignmentName, type, completed, assignmentDetails, dueDate, isRequired) values ("Project 2", "Academic", false, "build a basic webpage!", "2019-02-04 23:59:00", true);
 insert into assignments (assignmentName, type, completed, assignmentDetails, dueDate, isRequired) values ("Milestone 6: Prepare for a Successful Interview", "Career", false, "build a basic webpage!", "2019-02-13 23:59:00", false);
 insert into assignments (assignmentName, type, completed, assignmentDetails, dueDate, isRequired) values ("Updated Portfolio Page #2", "Academic", false, "build a tic-tac-toe game!", "2019-02-16 23:59:00", true);
@@ -28,4 +15,3 @@ insert into users (username) values ("User 4");
 insert into users (username) values ("User 5");
 
 
->>>>>>> 1ae1358346dbf9d291c5e7eaa7ac39882f1d7082

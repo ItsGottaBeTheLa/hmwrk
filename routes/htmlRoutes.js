@@ -10,20 +10,8 @@ module.exports = function(app) {
     });
   });
 
-<<<<<<< HEAD
   app.get("/login", function(req, res) {
     res.render("login");
-=======
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
->>>>>>> 1ae1358346dbf9d291c5e7eaa7ac39882f1d7082
   });
 
   app.get("/login/github", passport.authenticate("github"));
