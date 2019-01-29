@@ -1,7 +1,8 @@
 var crypto = require("crypto");
 var qs = require("qs");
+var keys = require("../config/keys.js");
 // fetch this from environment variables
-var slackSigningSecret = process.env.MY_SLACK_SIGNING_SECRET;
+var slackSigningSecret = keys.slack.signingSecret; //process.env.MY_SLACK_SIGNING_SECRET;
 var signVerification = function(req, res, next) {
   var slackSignature = req.headers["x-slack-signature"];
   var requestBody = qs.stringify(req.body, { format: "RFC1738" });
