@@ -1,5 +1,7 @@
 var db = require("../models");
 var signVerification = require("../js/signVerification.js");
+var moment = require("moment");
+moment.locale();
 
 module.exports = function(app) {
   // Get all assignments
@@ -40,7 +42,7 @@ module.exports = function(app) {
             "The Next Assignment is " +
             dbAssignment.assignmentName +
             " and is due on " +
-            dbAssignment.dueDate
+            moment(dbAssignment.dueDate).format("MMMM Do YYYY, h:mm a")
         };
         res.json(data);
       });
