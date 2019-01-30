@@ -1,10 +1,6 @@
 require("dotenv").config();
 var express = require("express");
-var exphbs = require("express-handlebars");
-
-var keys = require("./config/keys.js");
 var passport = require("passport");
-var GitHubStrategy = require("passport-github").Strategy;
 var db = require("./models");
 
 var app = express();
@@ -41,63 +37,15 @@ app.use(
 // session.
 app.use(passport.initialize());
 app.use(passport.session());
-var adminAccountNames = ["Bgosse1", "verna100", "ItsGottaBeTheLa", "harrysuk"];
 
 // EJS
 app.use("/public", express.static(process.cwd() + "/public"));
 app.set("view engine", "ejs");
 
-// Passport
-passport.use(
-  new GitHubStrategy(
-    {
-      clientID: keys.github.clientID,
-      clientSecret: keys.github.clientSecret,
-      callbackURL: "http://localhost:3000/return"
-    },
-    function(accessToken, refreshToken, profile, cb) {
-      var admin = false;
-      for (var i = 0; i < adminAccountNames.length; i++) {
-        if (profile.username === adminAccountNames[i]) {
-          admin = true;
-        }
-      }
-      console.log("profile " + profile.username);
-      db.User.findOrCreate({
-        where: { userName: profile.username },
-        defaults: { isAdmin: admin }
-      }).spread(function(user, created) {
-        console.log(
-          user.get({
-            plain: true
-          })
-        );
-        console.log(created);
-      });
-      return cb(null, profile);
-    }
-  )
-);
-passport.serializeUser(function(user, cb) {
-  cb(null, user);
-});
-
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
-});
-
-// Handlebars
-// app.engine(
-//   "handlebars",
-//   exphbs({
-//     defaultLayout: "main"
-//   })
-// );
-// app.set("view engine", "handlebars");
-
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+require("./js/passport")();
 
 var syncOptions = {
   force: false
