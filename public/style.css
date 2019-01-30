@@ -27,3 +27,9 @@ body {
     color: #efb22e;
     text-decoration: none;
 }
+
+a.log{
+    font-size: 30px;
+    font-weight:bold;
+    text-align:center;
+}
