@@ -42,6 +42,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 var adminAccountNames = ["Bgosse1", "verna100", "ItsGottaBeTheLa", "harrysuk"];
+
+// EJS
+app.use("/public", express.static(process.cwd() + "/public"));
+app.set("view engine", "ejs");
+
 // Passport
 passport.use(
   new GitHubStrategy(
