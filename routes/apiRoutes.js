@@ -1,4 +1,7 @@
 var db = require("../models");
+var signVerification = require("../js/signVerification.js");
+var moment = require("moment");
+moment.locale();
 
 module.exports = function(app) {
   // Get all assignments
@@ -22,13 +25,33 @@ module.exports = function(app) {
   });
 
   //slack slash command endpoint
-  app.post("/api/assignment", function(req, res) {
-    res.send("hello");
+  app.post("/slack/assignment", function(req, res) {
+    signVerification(req, res, function() {
+      db.Assignment.findOne({
+        where: {
+          dueDate: {
+            $gt: db.Sequelize.fn("NOW")
+          }
+        },
+        order: [["dueDate", "ASC"]]
+      }).then(function(dbAssignment) {
+        var data = {
+          // eslint-disable-next-line camelcase
+          response_type: "in-channel",
+          text:
+            "The Next Assignment is " +
+            dbAssignment.assignmentName +
+            " and is due on " +
+            moment(dbAssignment.dueDate).format("MMMM Do YYYY, h:mm a")
+        };
+        res.json(data);
+      });
+    });
   });
 
   // Create a new assignment
   app.post("/api/assignment", function(req, res) {
-    db.Example.create(req.body).then(function(dbAssignment) {
+    db.Assignment.create(req.body).then(function(dbAssignment) {
       res.json(dbAssignment);
       return;
     });
@@ -36,7 +59,7 @@ module.exports = function(app) {
 
   // Delete an anssignment by id
   app.delete("/api/assignment/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(
+    db.Assignment.destroy({ where: { id: req.params.id } }).then(function(
       dbAssignment
     ) {
       res.json(dbAssignment);
