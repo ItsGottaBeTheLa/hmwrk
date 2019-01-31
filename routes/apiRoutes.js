@@ -1,26 +1,45 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+  // Get all assignments
+  app.get("/api/assignment", function(req, res) {
+    db.Assignment.findAll({}).then(function(dbAssignment) {
+      res.json(dbAssignment);
+    });
+  });
+  //Get next upcoming assignment
+  app.get("/api/nextassignment", function(req, res) {
+    db.Assignment.findOne({
+      where: {
+        dueDate: {
+          $gt: db.Sequelize.fn("NOW")
+        }
+      },
+      order: [["dueDate", "ASC"]]
+    }).then(function(dbAssignment) {
+      res.json(dbAssignment);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  //slack slash command endpoint
+  app.post("/api/assignment", function(req, res) {
+    res.send("hello");
+  });
+
+  // Create a new assignment
+  app.post("/api/assignment", function(req, res) {
+    db.Example.create(req.body).then(function(dbAssignment) {
+      res.json(dbAssignment);
+      return;
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
+  // Delete an anssignment by id
+  app.delete("/api/assignment/:id", function(req, res) {
     db.Example.destroy({ where: { id: req.params.id } }).then(function(
-      dbExample
+      dbAssignment
     ) {
-      res.json(dbExample);
+      res.json(dbAssignment);
     });
   });
 };
