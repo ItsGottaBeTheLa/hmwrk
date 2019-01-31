@@ -9,14 +9,16 @@
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "mysqlrules",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
-    "logging": false
+    "logging": false,
+    "timezone": "-05:00"
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "timezone": "-05:00"
   }
 }
