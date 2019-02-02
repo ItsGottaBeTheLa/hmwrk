@@ -1,0 +1,35 @@
+<h1>Update the assignment with an id of {{this.id}}</h1>
+
+<form data-id="{{this.id}}" class="update-form">
+
+  <div class="form-group">
+    <label for="name">Assignment Name:</label>
+    <input type="text" id="name" name="name" value="{{this.assignmentName}}">
+  </div>
+
+  <div class="form-group">
+    <label for="type">Type:</label>
+    <textarea id="type" name="type" rows="8" cols="40">{{this.type}}</textarea>
+  </div>
+
+   <div class="form-group">
+    <label for="completed">Completed:</label>
+    <textarea id="completed" name="completed" rows="8" cols="40">{{this.completed}}</textarea>
+  </div>
+
+   <div class="form-group">
+    <label for="details">Assignment Details:</label>
+    <textarea id="details" name="details" rows="8" cols="40">{{this.assignmentDetails}}</textarea>
+  </div>
+
+   <div class="form-group">
+    <label for="due">Due Date:</label>
+    <textarea id="due" name="due" rows="8" cols="40">{{this.dueDate}}</textarea>
+  </div>
+   <div class="form-group">
+    <label for="required">Is Required:</label>
+    <textarea id="required" name="required" rows="8" cols="40">{{this.isRequired}}</textarea>
+  </div>
+
+  <button type="submit">Update Assignment</button>
+</form>
