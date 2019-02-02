@@ -1,4 +1,5 @@
 var passport = require("passport");
+var db = require("../models");
 
 module.exports = function(app) {
   // Load index page
@@ -10,6 +11,27 @@ module.exports = function(app) {
 
   app.get("/login", function(req, res) {
     res.render("login");
+  });
+
+  app.get("/api/amend", function(req, res) {
+    db.Assignment.findAll({}).then(function(dbAssignment) {
+      // res.json(dbAssignment);
+      res.render("index", { assignments: dbAssignment });
+    });
+  });
+
+  app.get("/api/update", function(req, res) {
+    db.Assignment.findOne({
+      where: {
+        dueDate: {
+          $gt: db.Sequelize.fn("NOW")
+        }
+      },
+      order: [["dueDate", "ASC"]]
+    }).then(function(dbAssignment) {
+      // res.json(dbAssignment);
+      res.render("single-assign", { assignments: dbAssignment });
+    });
   });
 
   app.get("/login/github", passport.authenticate("github"));
