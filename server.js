@@ -38,9 +38,15 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// EJS
-app.use("/public", express.static(process.cwd() + "/public"));
-app.set("view engine", "ejs");
+// Set Handlebars.
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+// // EJS
+// app.use("/public", express.static(process.cwd() + "/public"));
+// app.set("view engine", "ejs");
 
 // Routes
 require("./routes/apiRoutes")(app);
