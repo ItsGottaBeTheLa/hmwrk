@@ -34,6 +34,28 @@ module.exports = function(app) {
     });
   });
 
+  app.delete("/api/assignment/:id", function(req, res) {
+    db.Assignment.destroy({ where: { id: req.params.id } }).then(function(
+      dbAssignment
+    ) {
+      res.json(dbAssignment);
+    });
+  });
+
+  app.get("/api/nextassignment", function(req, res) {
+    db.Assignment.findOne({
+      where: {
+        dueDate: {
+          $gt: db.Sequelize.fn("NOW")
+        }
+      },
+      order: [["dueDate", "ASC"]]
+    }).then(function(dbAssignment) {
+      // res.json(dbAssignment);
+      res.render("index", { assignments: dbAssignment });
+    });
+  });
+
   app.get("/login/github", passport.authenticate("github"));
 
   app.get(
