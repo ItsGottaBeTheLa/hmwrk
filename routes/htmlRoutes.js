@@ -3,15 +3,18 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Load index page
-  app.get("/", function(req, res) {
-    res.render("home", {
-      user: req.user
-    });
-  });
-
-  app.get("/login", function(req, res) {
-    res.render("login");
-  });
+  app.get(
+    "/",
+    require("connect-ensure-login").ensureLoggedIn({
+      redirectTo: "/login/github",
+      setReturnTo: false
+    }),
+    function(req, res) {
+      res.render("home", {
+        user: req.user
+      });
+    }
+  );
 
   app.get("/api/amend", function(req, res) {
     db.Assignment.findAll({}).then(function(dbAssignment) {

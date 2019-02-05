@@ -96,7 +96,9 @@ module.exports = function(app) {
           "The Next Assignment is " +
           dbAssignment.assignmentName +
           " and is due on " +
-          moment(dbAssignment.dueDate).format("MMMM Do YYYY, h:mm a")
+          moment(dbAssignment.dueDate).format("MMMM Do YYYY, h:mm a") +
+          " here is the link: " +
+          dbAssignment.assignmentLink
       };
       res.json(data);
     });
