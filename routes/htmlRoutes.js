@@ -1,5 +1,7 @@
 var passport = require("passport");
 var db = require("../models");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
+var isAdministrator = require("../config/middleware/isAdministrator");
 
 module.exports = function(app) {
   // Load index page
@@ -16,7 +18,7 @@ module.exports = function(app) {
     }
   );
 
-  app.get("/api/amend", function(req, res) {
+  app.get("/api/amend", isAdministrator, function(req, res) {
     db.Assignment.findAll({}).then(function(dbAssignment) {
       // res.json(dbAssignment);
       res.render("index", { assignments: dbAssignment });
