@@ -22,6 +22,7 @@ module.exports = function() {
   });
 
   passport.deserializeUser(function(obj, cb) {
+    obj.isAdmin = isAdmin(obj);
     cb(null, obj);
   });
 };
@@ -51,4 +52,5 @@ function isAdmin(profile) {
     );
     console.log(created);
   });
+  return admin;
 }
