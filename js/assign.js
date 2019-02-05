@@ -53,13 +53,13 @@ $(function() {
     var id = $(this).data("id");
 
     // Send the POST request.
-    $.ajax("/api/assignment/" + id, {
+    $.ajax("/api/update" + id, {
       type: "PUT",
       data: updatedAssignment
     }).then(function() {
       console.log("updated assignment");
       // Reload the page to get the updated list
-      location.assign("/");
+      location.assign("/api/nextassignment");
     });
   });
 });

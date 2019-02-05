@@ -53,7 +53,7 @@ module.exports = function(app) {
   });
 
   // PUT route for updating posts
-  app.put("/api/posts", function(req, res) {
+  app.put("/api/assignment", function(req, res) {
     db.Post.update(req.body, {
       where: {
         id: req.body.id

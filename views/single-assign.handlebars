@@ -1,3 +1,13 @@
+{{!-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container"> --}}
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <span class="glyphicon glyphicon glyphicon-cog"></span>
+                Home
+            </a>
+        </div>
+
 <h1>Update the assignment with an id of {{this.id}}</h1>
 
 <form data-id="{{this.id}}" class="update-form">
@@ -31,5 +41,5 @@
     <textarea id="required" name="required" rows="8" cols="40">{{this.isRequired}}</textarea>
   </div>
 
-  <button type="submit">Update Assignment</button>
+  <button type="submit" class ="update-form">Update Assignment</button>
 </form>

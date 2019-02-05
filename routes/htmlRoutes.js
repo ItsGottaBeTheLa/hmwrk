@@ -16,7 +16,7 @@ module.exports = function(app) {
   // console.log(instructions);
   // Load index page
   app.get("/", function(req, res) {
-    res.render("home", {
+    res.render("admin", {
       user: req.user
     });
   });
@@ -48,6 +48,7 @@ module.exports = function(app) {
       },
       order: [["dueDate", "ASC"]]
     }).then(function(dbAssignment) {
+      // console.log("WORKING UPDATE: ", dbAssignment);
       // res.json(dbAssignment);
       res.render("single-assign", { assignments: dbAssignment });
     });
@@ -61,17 +62,19 @@ module.exports = function(app) {
   //   });
   // });
 
-  app.get("/api/nextassignment", function(req, res) {
+  app.get("/api/next-assignment", function(req, res) {
     db.Assignment.findOne({
       where: {
         dueDate: {
           $gt: db.Sequelize.fn("NOW")
         }
       },
-      order: [["dueDate", "ASC"]]
+      order: [["dueDate", "DESC"]]
     }).then(function(dbAssignment) {
+      console.log("WORKING VALUE: ", dbAssignment.dataValues);
       // res.json(dbAssignment);
-      res.render("index", { assignments: dbAssignment });
+      // res.render("next-assign", { assignments: dbAssignment });
+      res.render("next-assign", dbAssignment.dataValues);
     });
   });
 

@@ -1,22 +1,27 @@
-{{!-- <h3>Next Assignment</h3>
+<div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <span class="glyphicon glyphicon glyphicon-cog"></span>
+                Home
+            </a>
+        </div>
+<br>
+<br>
+
+<h3>Next Assignment</h3>
 
 <!-- Pass in data from server.js -->
 <ul>
-  {{#each assignments}}
+  
   	<li>
-  		<p><span class="label">ID:</span> {{this.id}}</p>
-      <p><span class="label">Assignment:</span> {{this.assignmentName}}</p>
-      <p><span class="label">Type:</span> {{this.type}}</p>
-      <p><span class="label">Completed:</span> {{this.completed}}</p>
-      <p><span class="label">Assignment Details:</span> {{this.assignmentDetails}}</p>
-      <p><span class="label">Due date:</span> {{this.dueDate}}</p>
-      <p><span class="label">Is Required:</span> {{this.isRequired}}</p>
-      <p><span class="label">Created At:</span> {{this.createdAt}}</p>
-      <p><span class="label">Updated At:</span> {{this.updatedAt}}</p>
-      
-      <button data-id="{{this.id}}" class="delassignment">Delete</button>
-
-      <a href="/{{this.id}}">Update this assignment</a>
+      <p>ID: {{id}}</p>
+      <p>Assignment: {{assignmentName}}</p>
+      <p>Type: {{type}}</p>
+      <p>Completed: {{completed}}</p>
+      <p>Assignment Details: {{assignmentDetails}}</p>
+      <p>Due Date: {{dueDate}}</p>
+      <p>Is Required: {{isRequired}}</p>
+      <p>Created At: {{createdAt}}</p>
+      <p>Updated At: {{updatedAt}}</p>
+  	
   	</li>
-  {{/each}}
-</ul> --}}
+</ul>
