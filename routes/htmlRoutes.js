@@ -73,7 +73,7 @@ module.exports = function(app) {
           $gt: db.Sequelize.fn("NOW")
         }
       },
-      order: [["dueDate", "DESC"]]
+      order: [["dueDate", "ASC"]]
     }).then(function(dbAssignment) {
       console.log("WORKING VALUE: ", dbAssignment.dataValues);
       // res.json(dbAssignment);
