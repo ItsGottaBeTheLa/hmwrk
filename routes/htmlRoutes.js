@@ -12,7 +12,7 @@ var commands = {
 };
 
 var db = require("../models");
-//var isAuthenticated = require("../config/middleware/isAuthenticated");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 var isAdministrator = require("../config/middleware/isAdministrator");
 
 module.exports = function(app) {
@@ -24,6 +24,7 @@ module.exports = function(app) {
       redirectTo: "/login/github",
       setReturnTo: false
     }),
+    isAdministrator,
     function(req, res) {
       res.render("admin", {
         user: req.user
@@ -36,6 +37,10 @@ module.exports = function(app) {
       // res.json(dbAssignment);
       res.render("index", { assignments: dbAssignment });
     });
+  });
+
+  app.get("/commands", isAuthenticated, function(req, res) {
+    res.render("commands", { commands: commands });
   });
 
   app.get("/api/update", isAdministrator, function(req, res) {
