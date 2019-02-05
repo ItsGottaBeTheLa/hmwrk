@@ -1,5 +1,5 @@
 var db = require("../models");
-var signVerification = require("../public/js/signVerification");
+var signVerification = require("../config/middleware/signVerification");
 var moment = require("moment");
 moment.locale();
 
@@ -70,6 +70,13 @@ module.exports = function(app) {
     ) {
       res.json(dbAssignment);
     });
+  });
+
+  //bot endpoint
+  app.post("/api", function(req, res) {
+    res.send(
+      "curl -F file=@homework-instructions.md, @homework-instructions2.md -F 'initial_comment=Homework Week2' -F channels=CFTQNUSGJ -H 'Authorization: Bearer xoxb-533280073296-538087922165-LZ5aLOywdyxZZ9d7u0owakcf' https://slack.com/api/files.upload "
+    );
   });
 
   //slack slash command endpoint

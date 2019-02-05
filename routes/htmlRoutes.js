@@ -34,14 +34,6 @@ module.exports = function(app) {
     });
   });
 
-  // app.delete("/api/assignment/:id", function(req, res) {
-  //   db.Assignment.destroy({ where: { id: req.params.id } }).then(function(
-  //     dbAssignment
-  //   ) {
-  //     res.json(dbAssignment);
-  //   });
-  // });
-
   app.get("/api/nextassignment", function(req, res) {
     db.Assignment.findOne({
       where: {
