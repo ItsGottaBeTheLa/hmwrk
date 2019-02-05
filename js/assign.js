@@ -4,7 +4,7 @@ $(function() {
     var id = $(this).data("id");
 
     // Send the DELETE request.
-    $.ajax("/api/assignments/" + id, {
+    $.ajax("/api/assignment/" + id, {
       type: "DELETE"
     }).then(function() {
       console.log("deleted id ", id);
@@ -27,7 +27,11 @@ $(function() {
     };
 
     // Send the POST request.
+<<<<<<< HEAD
     $.ajax("/api/assignments", {
+=======
+    $.ajax("/api/assignment", {
+>>>>>>> 0b90fd05aed13961fa8022eb60a5cfcd34a7ff34
       type: "POST",
       data: newAssignment
     }).then(function() {
@@ -53,7 +57,11 @@ $(function() {
     var id = $(this).data("id");
 
     // Send the POST request.
+<<<<<<< HEAD
     $.ajax("/api/assignments/" + id, {
+=======
+    $.ajax("/api/assignment/" + id, {
+>>>>>>> 0b90fd05aed13961fa8022eb60a5cfcd34a7ff34
       type: "PUT",
       data: updatedAssignment
     }).then(function() {
