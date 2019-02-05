@@ -1,6 +1,6 @@
 var passport = require("passport");
 var db = require("../models");
-var isAuthenticated = require("../config/middleware/isAuthenticated");
+//var isAuthenticated = require("../config/middleware/isAuthenticated");
 var isAdministrator = require("../config/middleware/isAdministrator");
 
 module.exports = function(app) {

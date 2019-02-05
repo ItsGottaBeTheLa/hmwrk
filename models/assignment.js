@@ -25,7 +25,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNULL: false
     },
-    assignmentLink:{
+    assignmentLink: {
       type: DataTypes.STRING,
       allowNULL: false
     }
