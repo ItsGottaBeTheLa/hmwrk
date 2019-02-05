@@ -9,7 +9,7 @@ module.exports = function() {
       {
         clientID: keys.github.clientID,
         clientSecret: keys.github.clientSecret,
-        callbackURL: "http://localhost:5000/return"
+        callbackURL: keys.githubCallbackUrl.callbackUrl
       },
       function(accessToken, refreshToken, profile, cb) {
         isAdmin(profile);
