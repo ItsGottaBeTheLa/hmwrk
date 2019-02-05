@@ -73,27 +73,25 @@ module.exports = function(app) {
   });
 
   //slack slash command endpoint
-  app.post("/slack/assignment", function(req, res) {
-    signVerification(req, res, function() {
-      db.Assignment.findOne({
-        where: {
-          dueDate: {
-            $gt: db.Sequelize.fn("NOW")
-          }
-        },
-        order: [["dueDate", "ASC"]]
-      }).then(function(dbAssignment) {
-        var data = {
-          // eslint-disable-next-line camelcase
-          response_type: "in-channel",
-          text:
-            "The Next Assignment is " +
-            dbAssignment.assignmentName +
-            " and is due on " +
-            moment(dbAssignment.dueDate).format("MMMM Do YYYY, h:mm a")
-        };
-        res.json(data);
-      });
+  app.post("/slack/assignment", signVerification, function(req, res) {
+    db.Assignment.findOne({
+      where: {
+        dueDate: {
+          $gt: db.Sequelize.fn("NOW")
+        }
+      },
+      order: [["dueDate", "ASC"]]
+    }).then(function(dbAssignment) {
+      var data = {
+        // eslint-disable-next-line camelcase
+        response_type: "in-channel",
+        text:
+          "The Next Assignment is " +
+          dbAssignment.assignmentName +
+          " and is due on " +
+          moment(dbAssignment.dueDate).format("MMMM Do YYYY, h:mm a")
+      };
+      res.json(data);
     });
   });
 };
