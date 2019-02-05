@@ -45,7 +45,8 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // // EJS
-// app.use("/public", express.static(process.cwd() + "/public"));
+app.use("/public", express.static(process.cwd() + "/public"));
+app.use("/js", express.static(process.cwd() + "/js"));
 // app.set("view engine", "ejs");
 
 // Routes
