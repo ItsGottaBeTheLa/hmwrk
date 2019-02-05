@@ -38,7 +38,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Set Handlebars.
+// Set npm install.
 var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));

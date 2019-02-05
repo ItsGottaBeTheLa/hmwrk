@@ -1,4 +1,4 @@
-var source = $("../views/commands.handlebars").html(); 
+var source = require("../views/commands.handlebars") 
 var template = Handlebars.compile(source); 
 
 var data = { 
@@ -8,7 +8,9 @@ var data = {
         },
         whatToType: "/thisweekhw",
         whatItDoes: "Display's current weeks assignment details" 
-    }, {
+        }, 
+    
+    {
         input: {
             command: "yoMamaJoke"
         }, 
@@ -22,3 +24,5 @@ Handlebars.registerHelper('command', function(input) {
 });
 
 $('body').append(template(data));
+
+// module.exports(data)
