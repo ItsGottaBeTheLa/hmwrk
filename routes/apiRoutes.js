@@ -1,5 +1,5 @@
 var db = require("../models");
-var signVerification = require("../js/signVerification.js");
+var signVerification = require("../public/js/signVerification");
 var moment = require("moment");
 moment.locale();
 

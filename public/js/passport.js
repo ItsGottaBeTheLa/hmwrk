@@ -1,7 +1,7 @@
 var GitHubStrategy = require("passport-github").Strategy;
-var keys = require("../config/keys.js");
+var keys = require("../../config/keys.js");
 var passport = require("passport");
-var db = require("../models");
+var db = require("../../models");
 
 module.exports = function() {
   passport.use(
@@ -9,7 +9,7 @@ module.exports = function() {
       {
         clientID: keys.github.clientID,
         clientSecret: keys.github.clientSecret,
-        callbackURL: "http://localhost:3000/return"
+        callbackURL: "http://localhost:5000/return"
       },
       function(accessToken, refreshToken, profile, cb) {
         isAdmin(profile);
