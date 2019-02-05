@@ -59,14 +59,4 @@ module.exports = function(app) {
       res.redirect("/");
     }
   );
-
-  app.get(
-    "/profile",
-    require("connect-ensure-login").ensureLoggedIn(),
-    function(req, res) {
-      res.render("profile", {
-        user: req.user
-      });
-    }
-  );
 };
