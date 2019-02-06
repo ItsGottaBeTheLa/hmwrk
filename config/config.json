@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "cazzomadre!",
+    "password": "password",
     "database": "hmwrkdb",
     "host": "localhost",
     "dialect": "mysql",
