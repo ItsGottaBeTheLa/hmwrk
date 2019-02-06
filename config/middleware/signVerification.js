@@ -1,6 +1,6 @@
 var crypto = require("crypto");
 var qs = require("qs");
-var keys = require("../config/keys.js");
+var keys = require("../keys.js");
 
 var slackSigningSecret = keys.slack.signingSecret;
 
