@@ -4,11 +4,11 @@ var passport = require("passport");
 var commands = {
   hwCommand: "thisweekshw",
   hwCommand2: "/thisWeekhw",
-  whatHwDoes: "Display's current weeks assignment details" ,
+  whatHwDoes: "Display's current weeks assignment details",
   jokeCommand: "yoMamaJoke",
   jokeCommand2: "/yoMamaJoke",
-  whatJokeDoes: "Display's a \"yo mama joke \" from their API"
-}
+  whatJokeDoes: 'Display\'s a "yo mama joke " from their API'
+};
 
 var db = require("../models");
 
@@ -21,12 +21,12 @@ module.exports = function(app) {
     });
   });
 
- app.get("/commands", function(req,res) {
-   console.log(commands);
-   res.render("commands", {
-    commands:commands
-   });
- });
+  app.get("/commands", function(req, res) {
+    console.log(commands);
+    res.render("commands", {
+      commands: commands
+    });
+  });
 
   app.get("/login", function(req, res) {
     res.render("login");
@@ -39,7 +39,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/update", function(req, res) {
+  app.get("/api/update/:id", function(req, res) {
     db.Assignment.findOne({
       where: {
         dueDate: {

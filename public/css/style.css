@@ -42,4 +42,84 @@ li {
     font-size:16px;
     color:black;
   }
+
+  p{
+    font-size: 24px;
+
+  }
+  .home{
+    font-size:30px;
+    text-align:center;
+  }
+
+  .add{
+    text-align:left;
+    font-size: 28px;
+    color: red;
+    margin-left:40px;
+  }
+  
+  img{
+   display: block;
+   margin:auto;
+  }
+  
+  .create-form{
+    margin-left: 40px;
+  }
+
+  label{
+    font-size: 20px;
+  }
+  
+  .buttonadd{
+    font-size:30px;
+    margin-bottom: 50px;
+    color:navy;
+  }
+
+  /* Responsive design, smallest device first */
+
+#rendered .title::after {
+  content: ' - Phone';
+}
+@media (min-width: 480px) {
+  #rendered .title::after {
+      content: ' - Phone large';
+  }
+  #rendered {
+      width: 96%;
+      font-size: 110%;
+  }
+}
+@media (min-width: 768px) {
+  #rendered .title::after {
+      content: ' - Tablet';
+  }
+  #rendered {
+      width: 80%;
+      font-size: 120%;
+  }
+}
+@media (min-width: 992px) {
+  #rendered .title::after {
+      content: ' - Desktop';
+  }
+  #rendered {
+      width: 70%;
+      font-size: 130%;
+  }
+  #rendered li {
+      margin: 0.5em;
+  }
+}
+@media (min-width: 1200px) {
+  #rendered .title::after {
+      content: ' - Desktop large';
+  }
+  #rendered {
+      width: 60%;
+      font-size: 140%;
+  }
+}
   
