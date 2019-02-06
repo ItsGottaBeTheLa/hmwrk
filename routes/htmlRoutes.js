@@ -43,7 +43,7 @@ module.exports = function(app) {
     res.render("commands", { commands: commands });
   });
 
-  app.get("/api/update", isAdministrator, function(req, res) {
+  app.get("/api/update/:id", function(req, res) {
     db.Assignment.findOne({
       where: {
         dueDate: {

@@ -34,7 +34,7 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new assignment
-  app.post("/api/add", function(req, res) {
+  app.post("/api/assignment", function(req, res) {
     console.log(req.body);
     db.Assignment.create({
       assignmentName: req.body.assignmentName,
@@ -52,14 +52,14 @@ module.exports = function(app) {
       });
   });
 
-  // PUT route for updating posts
-  app.put("/api/assignment", function(req, res) {
-    db.Post.update(req.body, {
+  // PUT route for updating assignments
+  app.put("/api/assignment/:id", function(req, res) {
+    db.Assignment.update(req.body, {
       where: {
         id: req.body.id
       }
-    }).then(function(dbPost) {
-      res.json(dbPost);
+    }).then(function(dbAssignment) {
+      res.json(dbAssignment);
     });
   });
 
