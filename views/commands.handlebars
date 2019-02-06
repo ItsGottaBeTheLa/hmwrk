@@ -1,24 +1,28 @@
-<h1>Commands for HMWRKBOT</h1>
-{{!-- <script src= "../js/howto.js" type ="text/javascript">  --}}
-<table>
-    <thead> 
-        <th>Commands</th> 
-        <th>Input</th> 
-        <th>What the command does</th> 
-    </thead> 
-    <tbody> 
-        {{#commands}} 
-        <tr> 
-            <td>{{hwCommand}}</td> 
-            <td>{{hwCommand2}}</td> 
-            <td>{{whatHwDoes}}</td> 
-        </tr> 
-          <tr> 
-            <td>{{jokeCommand}}</td> 
-            <td>{{jokeCommand2}}</td> 
-            <td>{{whatJokeDoes}}</td> 
-        </tr> 
-        {{/commands}} 
-    </tbody> 
-</table> 
-</script>
+<!DOCTYPE html>
+<html lang ="en">
+    {{!-- <link rel="stylesheet" href="/public/style3.css" type="text/css" /> --}}
+    <h1>Commands for HMWRKBOT</h1>
+    {{!-- <script src= "../js/howto.js" type ="text/javascript">  --}}
+    <table>
+        <thead> 
+            <th>Commands</th> 
+            <th>Input</th> 
+            <th>What the command does</th> 
+        </thead> 
+        <tbody> 
+            {{#commands}} 
+            <tr> 
+                <td>{{hwCommand}}</td> 
+                <td>{{hwCommand2}}</td> 
+                <td>{{whatHwDoes}}</td> 
+            </tr> 
+            <tr> 
+                <td>{{jokeCommand}}</td> 
+                <td>{{jokeCommand2}}</td> 
+                <td>{{whatJokeDoes}}</td> 
+            </tr> 
+            {{/commands}} 
+        </tbody> 
+    </table> 
+    </script>
+</html>
