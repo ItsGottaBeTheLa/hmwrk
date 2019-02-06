@@ -48,7 +48,7 @@ app.use("/public", express.static(process.cwd() + "/public"));
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 require("./public/js/passport")();
-//require("./public/js/slackbot")();
+require("./public/js/slackbot")();
 
 var syncOptions = {
   force: false
