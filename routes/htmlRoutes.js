@@ -4,12 +4,12 @@ var passport = require("passport");
 var commands = {
   hwCommand: "thisweekshw",
   hwCommand2: "/thisWeekhw",
-  whatHwDoes: "Display's current weeks assignment details",
-  jokeCommand: "yoMamaJoke",
-  jokeCommand2: "/yoMamaJoke",
-  // eslint-disable-next-line quotes
-  whatJokeDoes: 'Display\'s a "yo mama joke " from their API'
-};
+  whatHwDoes: "Display's current weeks assignment details" ,
+  jokeCommand: "Joke",
+  jokeCommand2: "/Joke",
+  whatJokeDoes: "Display's a \"yo mama joke \" from their API"
+}
+
 
 var db = require("../models");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
