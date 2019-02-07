@@ -25,13 +25,13 @@ module.exports = function(app) {
     });
   });
 
-  // // Add a new assignment
-  // app.post("/api/assignment", function(req, res) {
-  //   db.Assignment.create(req.body).then(function(dbAssignment) {
-  //     res.json(dbAssignment);
-  //     return;
-  //   });
-  // });
+  // Add a new assignment
+  app.post("/api/assignment", function(req, res) {
+    db.Assignment.create(req.body).then(function(dbAssignment) {
+      res.json(dbAssignment);
+      return;
+    });
+  });
 
   // POST route for saving a new assignment
   app.post("/api/assignment", function(req, res) {
