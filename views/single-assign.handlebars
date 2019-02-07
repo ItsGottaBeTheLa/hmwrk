@@ -1,14 +1,11 @@
-{{!-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container"> --}}
-
-        <div class="navbar-header">
+<div class="navbar-header">
             <a class="navbar-brand" href="/">
                 <span class="glyphicon glyphicon glyphicon-cog"></span>
                 Home
             </a>
         </div>
 
-<h1>Update the assignment with an id of {{dbAssignment.dataValues.id}}</h1>
+<h1>Update the assignment with an ID of {{dbAssignment.dataValues.id}}</h1>
 
 <form data-id="{{dbAssignment.dataValues.id}}" class="update-form">
 
@@ -44,10 +41,8 @@
     <label for="link">Assignment Link:</label>
     <textarea id="link" name="link" rows="8" cols="40">{{dbAssignment.dataValues.assignmentLink}}</textarea>
   </div>
-
+<br>
+<br>
   <button type="submit" class ="update-form">Update Assignment</button>
 </form>
 
-<script>
-  console.log("{{dbAssignment.dataValues.id}}")
-</script>
