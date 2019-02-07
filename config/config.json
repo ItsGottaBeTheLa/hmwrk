@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "password",
+    "password": "mysqlrules",
     "database": "hmwrkdb",
     "host": "localhost",
     "dialect": "mysql",
