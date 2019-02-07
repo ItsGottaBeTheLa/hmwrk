@@ -1,0 +1,53 @@
+{{!-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container"> --}}
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <span class="glyphicon glyphicon glyphicon-cog"></span>
+                Home
+            </a>
+        </div>
+
+<h1>Update the assignment with an id of {{dbAssignment.dataValues.id}}</h1>
+
+<form data-id="{{dbAssignment.dataValues.id}}" class="update-form">
+
+  <div class="form-group">
+    <label for="name">Assignment Name:</label>
+    <input type="text" id="name" name="name" value="{{dbAssignment.dataValues.assignmentName}}">
+  </div>
+
+  <div class="form-group">
+    <label for="type">Type:</label>
+    <textarea id="type" name="type" rows="8" cols="40">{{dbAssignment.dataValues.type}}</textarea>
+  </div>
+
+   <div class="form-group">
+    <label for="completed">Completed:</label>
+    <textarea id="completed" name="completed" rows="8" cols="40">{{dbAssignment.dataValues.completed}}</textarea>
+  </div>
+
+   <div class="form-group">
+    <label for="details">Assignment Details:</label>
+    <textarea id="details" name="details" rows="8" cols="40">{{dbAssignment.dataValues.assignmentDetails}}</textarea>
+  </div>
+
+   <div class="form-group">
+    <label for="due">Due Date:</label>
+    <textarea id="due" name="due" rows="8" cols="40">{{dbAssignment.dataValues.dueDate}}</textarea>
+  </div>
+   <div class="form-group">
+    <label for="required">Is Required:</label>
+    <textarea id="required" name="required" rows="8" cols="40">{{dbAssignment.dataValues.isRequired}}</textarea>
+  </div>
+  <div class="form-group">
+    <label for="link">Assignment Link:</label>
+    <textarea id="link" name="link" rows="8" cols="40">{{dbAssignment.dataValues.assignmentLink}}</textarea>
+  </div>
+
+  <button type="submit" class ="update-form">Update Assignment</button>
+</form>
+
+<script>
+  console.log("{{dbAssignment.dataValues.id}}")
+</script>

@@ -1,0 +1,138 @@
+li {
+    padding: 5px;
+    margin: 5px;
+    background:yellowgreen;
+  }
+  
+  h1{
+    text-align:center;
+    font-size: 36px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  }
+  
+  a.navbar-brand{
+    color:green;
+  }
+  
+  h2{
+    text-align:center;
+    font-size:24px;
+  }
+  
+  h3{
+    text-align:center;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  .update-form {
+    padding: 5px;
+    margin: 5px;
+    background: yellowgreen;
+  }
+  
+  #name, #type, #completed, #details, #required, #link{
+    width: 360px;
+    height:40px;
+    padding-top: 10px;
+  }
+  #due{
+    width: 360px;
+    height:60px;
+  }
+  #link{
+    width:360px;
+    height:130px;
+  }
+  
+  .form-group {
+    margin-bottom: 5px;
+  } 
+
+  .label{
+    font-size:16px;
+    color:black;
+  }
+
+  p{
+    font-size: 24px;
+
+  }
+  .home{
+    font-size:30px;
+    text-align:center;
+  }
+
+  .add{
+    text-align:left;
+    font-size: 28px;
+    color: red;
+    margin-left:40px;
+  }
+  
+  img{
+   display: block;
+   margin:auto;
+  }
+  
+  .create-form{
+    margin-left: 40px;
+  }
+
+  label{
+    font-size: 20px;
+  }
+  
+  .buttonadd{
+    font-size:30px;
+    margin-bottom: 50px;
+    color:navy;
+  }
+
+  /* Responsive design, smallest device first */
+
+#rendered .title::after {
+  content: ' - Phone';
+}
+@media (min-width: 480px) {
+  #rendered .title::after {
+      content: ' - Phone large';
+  }
+  #rendered {
+      width: 96%;
+      font-size: 110%;
+  }
+}
+@media (min-width: 768px) {
+  #rendered .title::after {
+      content: ' - Tablet';
+  }
+  #rendered {
+      width: 80%;
+      font-size: 120%;
+  }
+}
+@media (min-width: 992px) {
+  #rendered .title::after {
+      content: ' - Desktop';
+  }
+  #rendered {
+      width: 70%;
+      font-size: 130%;
+  }
+  #rendered li {
+      margin: 0.5em;
+  }
+}
+@media (min-width: 1200px) {
+  #rendered .title::after {
+      content: ' - Desktop large';
+  }
+  #rendered {
+      width: 60%;
+      font-size: 140%;
+  }
+}
+  

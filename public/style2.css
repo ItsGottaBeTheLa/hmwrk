@@ -1,0 +1,69 @@
+html{
+    background-image: url("../public/images/whiteboard.jpg");
+    position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#masthead{
+    text-align: center;
+    width: 100%;
+    margin-top: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-top: 15px;
+    border-bottom: 4px solid #3715c4;
+}
+#intro{
+    margin-left: 40px;
+}
+h2{
+    font-family: 'ZCOOL KuaiLe', cursive;
+    font-size: 30px;
+    margin-top: 0px;
+    padding-top: 10px;
+}
+h3{
+    font-family: 'Permanent Marker', cursive;
+    color: #B22222;
+}
+#wintro {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20px;
+    color: #2E8B57;
+}
+table{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    
+}
+#theading{
+    font-family: 'Permanent Marker', cursive;
+}
+#tbody{
+    font-family: 'Indie Flower', cursive;
+    color: #000080;
+    font-size: 22px;
+}
+#tbody1{
+    font-family: 'Indie Flower', cursive;
+    color: 	#FF8C00;
+}
+#b1,
+#c1,
+#b2,
+#c2{
+    padding-left: 15px;
+}
+footer{
+    clear: both;
+    text-align: center;
+    position: fixed;
+    left: 0px;
+    bottom: 20px;
+    height: 30px;
+    width: 100%;
+    color: #eeeeee;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 18px;
+}

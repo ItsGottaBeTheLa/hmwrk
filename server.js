@@ -1,18 +1,10 @@
 require("dotenv").config();
 var express = require("express");
-var exphbs = require("express-handlebars");
-
-var keys = require("./config/keys.js");
 var passport = require("passport");
-var GitHubStrategy = require("passport-github").Strategy;
 var db = require("./models");
 
 var app = express();
-var PORT = process.env.PORT || 3000;
-
-// Configure view engine to render EJS templates.
-app.set("views", __dirname + "/views");
-app.set("view engine", "ejs");
+var PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(
@@ -42,51 +34,21 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// EJS
+// Set npm install.
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+// // EJS
 app.use("/public", express.static(process.cwd() + "/public"));
-app.set("view engine", "ejs");
-
-// Passport
-passport.use(
-  new GitHubStrategy(
-    {
-      clientID: keys.github.clientID,
-      clientSecret: keys.github.clientSecret,
-      callbackURL: "http://localhost:3000/return"
-    },
-    function(accessToken, refreshToken, profile, cb) {
-      // User.findOrCreate(
-      //   {
-      //     githubId: profile.id
-      //   },
-      //   function(err, user) {
-      //     return cb(err, user);
-      //   }
-      // );
-      return cb(null, profile);
-    }
-  )
-);
-passport.serializeUser(function(user, cb) {
-  cb(null, user);
-});
-
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
-});
-
-// Handlebars
-// app.engine(
-//   "handlebars",
-//   exphbs({
-//     defaultLayout: "main"
-//   })
-// );
-// app.set("view engine", "handlebars");
+// app.set("view engine", "ejs");
 
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+require("./public/js/passport")();
+require("./public/js/slackbot")();
 
 var syncOptions = {
   force: false

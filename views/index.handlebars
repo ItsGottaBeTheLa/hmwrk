@@ -1,33 +1,84 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+{{!-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"> --}}
+    {{!-- <div class="container"> --}}
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <span class="glyphicon glyphicon glyphicon-cog"></span>
+                Home
+            </a>
+        </div>
+
+
+ <link rel="stylesheet" href="/css/style.css">
+
+ <br>
+ <br>
+
+<h1>HMWRK App</h1>
+
+<h2>Manage assignments with this app</h2>
+<h3>Add a new assignment below</h3>
+
+<!-- Pass in data from server.js -->
+<ul>
+  {{#each assignments}}
+  	<li>
+  		<p><span class="label">ID:</span> {{this.id}}</p>
+      <p><span class="label">Assignment:</span> {{this.assignmentName}}</p>
+      <p><span class="label">Type:</span> {{this.type}}</p>
+      <p><span class="label">Completed:</span> {{this.completed}}</p>
+      <p><span class="label">Assignment Details:</span> {{this.assignmentDetails}}</p>
+      <p><span class="label">Due date:</span> {{this.dueDate}}</p>
+      <p><span class="label">Is Required:</span> {{this.isRequired}}</p>
+      <p><span class="label">Assignment Link:</span> {{this.assignmentLink}}</p>
+      
+      <button data-id="{{this.id}}" class="delassignment">Delete</button>
+
+      <a href="/update/{{this.id}}">Update this assignment</a>
+  	</li>
+  {{/each}}
+</ul>
+<br>
+<br>
+
+<h2 class ="add">Add an assignment here: </h2>
+<br>
+
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="name">Assignment Name:</label>
+    <input type="text" id="name" name="name">
+  </div>
+  <div class="form-group">
+    <label for="type">Type:</label>
+    <input type="input" id="type" name="type">
+  </div>
+  <div class="form-group">
+    <label for="completed">Completed:</label>
+    <input type="text" id="completed" name="completed">
+  </div>
+
+    <div class="form-group">
+    <label for="details">Assignment Details:</label>
+    <textarea id="details" name="details" rows="8" cols="40"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="due">Due Date:</label>
+    <input type="text" id="due" name="due">
+  </div>
+
+  <div class="form-group">
+    <label for="required">Is Required</label>
+    <input type="text" id="required" name="required">
+  </div>
+
+   <div class="form-group">
+    <label for="link">Assignment Link</label>
+    <input type="text" id="link" name="link">
+  </div>
+  
+
+  <button type="submit" class="buttonadd">Add assignment</button>
+</form>

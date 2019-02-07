@@ -1,5 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
   var Assignment = sequelize.define("Assignment", {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
     assignmentName: {
       type: DataTypes.STRING,
       allowNull: false
@@ -22,6 +28,10 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     assignmentDetails: {
+      type: DataTypes.STRING,
+      allowNULL: false
+    },
+    assignmentLink: {
       type: DataTypes.STRING,
       allowNULL: false
     }

@@ -2,18 +2,13 @@
 // =============================================================
 var Slackbot = require('slackbots');
 var axios = require ("axios");
-var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
 var fs = require('fs');
 var request = require('request');
+var keys = require("../../config/keys");
 
-
-// Sets up the Express App
-// =============================================================
-var app = express();
-var PORT = 8085;
-
+module.exports = function() {
 // message variables 
 var res = [];
 var Channum = "";
@@ -27,9 +22,6 @@ var bot = new Slackbot({
 
 var varToken = ("xoxb-533280073296-538087922165-9IQZYaEOPzobfcYiCXE9xwRF")
 
-// Sets up the Express app to handle data parsing
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 // Test message for connection
 // bot.postMessageToChannel(
@@ -102,3 +94,4 @@ bot.on('message', data => {
   });
   }
 }
+};
