@@ -43,6 +43,7 @@ $(function() {
     event.preventDefault();
 
     var updatedAssignment = {
+      id: $(this).data("id"),
       assignmentName: $("#name").val(),
       type: $("#type").val(),
       completed: $("#completed").val(),
@@ -61,7 +62,7 @@ $(function() {
     }).then(function() {
       console.log("updated assignment");
       // Reload the page to get the updated list
-      location.assign("/api/assignment");
+      location.assign("/api/amend");
     });
   });
 });

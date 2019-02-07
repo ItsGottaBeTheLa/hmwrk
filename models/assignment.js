@@ -1,5 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
   var Assignment = sequelize.define("Assignment", {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true
+    },
     assignmentName: {
       type: DataTypes.STRING,
       allowNull: false
