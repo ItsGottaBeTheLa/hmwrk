@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang ="en">
-    {{!-- <link rel="stylesheet" href="/public/style3.css" type="text/css" /> --}}
-    <h1>Commands for HMWRKBOT</h1>
-    {{!-- <script src= "../js/howto.js" type ="text/javascript">  --}}
-    <table>
-        <thead> 
-            <th>Commands</th> 
-            <th id="tag1">Input</th> 
-            <th id="tag3">What the command does</th> 
-        </thead> 
-        <tbody> 
-            {{#commands}} 
-            <tr id="dfortb"> 
-                <td>{{hwCommand}}</td> 
-                <td id="tag2a">{{hwCommand2}}</td> 
-                <td id="tag2">{{whatHwDoes}}</td> 
-            </tr> 
-            <tr id="infotb"> 
-                <td>{{jokeCommand}}</td> 
-                <td id="tag3b">{{jokeCommand2}}</td> 
-                <td id="tag2b">{{whatJokeDoes}}</td> 
-            </tr> 
-            {{/commands}} 
-        </tbody> 
-    </table> 
-    <footer>&copy HMWRKBOT 2019</footer>
-    </script>
+    <link rel="stylesheet" href="/public/style3.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Kalam|Permanent+Marker|ZCOOL+KuaiLe" rel="stylesheet">
+    <div id ="image1">
+        <h1 id="heading">Commands for HMWRKBOT</h1>
+        {{!-- <script src= "../js/howto.js" type ="text/javascript">  --}}
+        <p id="fintro">An easy way to have Slackbot HELP you organize your assignments!</p>
+        <p id="wintro">Please follow the command table below:</p>
+        <table id="maininfo">
+            <thead> 
+                <th>Commands</th> 
+                <th id="tag1">Input</th> 
+                <th id="tag3">What the command does</th> 
+            </thead> 
+            <tbody> 
+                {{#commands}} 
+                <tr id="dfortb"> 
+                    <td>{{hwCommand}}</td> 
+                    <td id="tag2a">{{hwCommand2}}</td> 
+                    <td id="tag2">{{whatHwDoes}}</td> 
+                </tr> 
+                <tr id="infotb"> 
+                    <td>{{jokeCommand}}</td> 
+                    <td id="tag3b">{{jokeCommand2}}</td> 
+                    <td id="tag2b">{{whatJokeDoes}}</td> 
+                </tr> 
+                {{/commands}} 
+            </tbody> 
+        </table> 
+        <footer>&copy HMWRKBOT 2019</footer>
+        </script>
+    </div>
 </html>
