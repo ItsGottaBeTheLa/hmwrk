@@ -23,7 +23,8 @@ $(function() {
       completed: $("#completed").val(),
       assignmentDetails: $("#details").val(),
       dueDate: $("#due").val(),
-      isRequired: $("#required").val()
+      isRequired: $("#required").val(),
+      assignmentLink: $("#link").val()
     };
 
     // Send the POST request.
@@ -47,19 +48,20 @@ $(function() {
       completed: $("#completed").val(),
       assignmentDetails: $("#details").val(),
       dueDate: $("#due").val(),
-      isRequired: $("#required").val()
+      isRequired: $("#required").val(),
+      assignmentLink: $("#link").val()
     };
 
     var id = $(this).data("id");
 
     // Send the POST request.
-    $.ajax("/api/update" + id, {
+    $.ajax("/api/assignment/" + id, {
       type: "PUT",
       data: updatedAssignment
     }).then(function() {
       console.log("updated assignment");
       // Reload the page to get the updated list
-      location.assign("/api/nextassignment");
+      location.assign("/api/assignment");
     });
   });
 });

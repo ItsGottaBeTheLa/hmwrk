@@ -11,6 +11,9 @@
 
  <link rel="stylesheet" href="/css/style.css">
 
+ <br>
+ <br>
+
 <h1>HMWRK App</h1>
 
 <h2>Manage assignments with this app</h2>
@@ -27,19 +30,19 @@
       <p><span class="label">Assignment Details:</span> {{this.assignmentDetails}}</p>
       <p><span class="label">Due date:</span> {{this.dueDate}}</p>
       <p><span class="label">Is Required:</span> {{this.isRequired}}</p>
-      <p><span class="label">Created At:</span> {{this.createdAt}}</p>
-      <p><span class="label">Updated At:</span> {{this.updatedAt}}</p>
+      <p><span class="label">Assignment Link:</span> {{this.assignmentLink}}</p>
       
       <button data-id="{{this.id}}" class="delassignment">Delete</button>
 
-      <a href="/{{this.id}}">Update this assignment</a>
+      <a href="/update/{{this.id}}">Update this assignment</a>
   	</li>
   {{/each}}
 </ul>
 <br>
 <br>
 
-<h2>Add a assignment</h2>
+<h2 class ="add">Add an assignment here: </h2>
+<br>
 
 <form class="create-form">
 
@@ -70,7 +73,12 @@
     <label for="required">Is Required</label>
     <input type="text" id="required" name="required">
   </div>
+
+   <div class="form-group">
+    <label for="link">Assignment Link</label>
+    <input type="text" id="link" name="link">
+  </div>
   
 
-  <button type="submit">Add assignment</button>
+  <button type="submit" class="buttonadd">Add assignment</button>
 </form>

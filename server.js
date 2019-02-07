@@ -4,11 +4,7 @@ var passport = require("passport");
 var db = require("./models");
 
 var app = express();
-var PORT = process.env.PORT || 3000;
-
-// Configure view engine to render EJS templates.
-app.set("views", __dirname + "/views");
-app.set("view engine", "ejs");
+var PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(
@@ -46,13 +42,13 @@ app.set("view engine", "handlebars");
 
 // // EJS
 app.use("/public", express.static(process.cwd() + "/public"));
-app.use("/js", express.static(process.cwd() + "/js"));
 // app.set("view engine", "ejs");
 
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
-require("./js/passport")();
+require("./public/js/passport")();
+require("./public/js/slackbot")();
 
 var syncOptions = {
   force: false
