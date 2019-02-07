@@ -42,9 +42,7 @@ module.exports = function() {
   });
 
   //for debugging
-  bot.getUsers().then(users =>{
-    console.log(users);
-  })
+  
   
 
   // bot.getChannelById(Channum);
@@ -93,7 +91,8 @@ module.exports = function() {
         .then(res => {
           const nerd = res.data.value.joke;
           console.log(res);
-          bot.postMessageToUser('bryant.gossett', `Joke: ${nerd}`);
+          //bot.postMessageToUser('bryant.gossett', );
+          bot.postMessage(Channum, `Joke: ${nerd}`)
         });
     }
 
