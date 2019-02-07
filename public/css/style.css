@@ -1,9 +1,13 @@
 li {
     padding: 5px;
     margin: 5px;
-    background:yellowgreen;
+    background:rgb(190, 240, 190);
   }
-  
+
+  a {
+    font-size: 24px;
+  } 
+   
   h1{
     text-align:center;
     font-size: 36px;
@@ -12,6 +16,7 @@ li {
   
   a.navbar-brand{
     color:green;
+    font-size:24px;
   }
   
   h2{
@@ -25,22 +30,39 @@ li {
   
   .label {
     font-weight: bold;
+    text-decoration:underline;
+  }
+
+  span.label, a.label{
+    font-size:24px;
+    padding-bottom:15px;
   }
   
   .update-form {
     padding: 5px;
     margin: 5px;
     background: yellowgreen;
+    font-size:20px;
+  }
+  
+  button.update-form{
+    background-color:white;
+  }
+
+  .delassignment{
+    font-size:20px;
   }
   
   #name, #type, #completed, #details, #required, #link{
     width: 360px;
     height:40px;
     padding-top: 10px;
+    margin-left:20px;
   }
   #due{
     width: 360px;
-    height:60px;
+    height:40px;
+    margin-left:20px;
   }
   #link{
     width:360px;
@@ -60,6 +82,7 @@ li {
     font-size: 24px;
 
   }
+
   .home{
     font-size:30px;
     text-align:center;
@@ -88,7 +111,8 @@ li {
   .buttonadd{
     font-size:30px;
     margin-bottom: 50px;
-    color:navy;
+    background-color:navy;
+    color:white;
   }
 
   /* Responsive design, smallest device first */

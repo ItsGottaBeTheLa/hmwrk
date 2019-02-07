@@ -13,16 +13,16 @@
 <ul>
   
   	<li>
-      <p>ID: {{id}}</p>
-      <p>Assignment: {{assignmentName}}</p>
-      <p>Type: {{type}}</p>
-      <p>Completed: {{completed}}</p>
-      <p>Assignment Details: {{assignmentDetails}}</p>
-      <p>Due Date: {{dueDate}}</p>
-      <p>Is Required: {{isRequired}}</p>
-      <p>Assignment Link: {{assignmentLink}}</p>
-      <p>Created At: {{createdAt}}</p>
-      <p>Updated At: {{updatedAt}}</p>
+      <p><span class="label">ID:</span> {{this.id}}</p>
+      <p><span class="label">Assignment:</span> {{this.assignmentName}}</p>
+      <p><span class="label">Type:</span> {{this.type}}</p>
+      <p><span class="label">Completed:</span> {{this.completed}}</p>
+      <p><span class="label">Assignment Details:</span> {{this.assignmentDetails}}</p>
+      <p><span class="label">Due date:</span> {{this.dueDate}}</p>
+      <p><span class="label">Is Required:</span> {{this.isRequired}}</p>
+      <a href="{{this.assignmentLink}}" class ="label">Assignment Link </a>
+      {{!-- <p>Created At: {{createdAt}}</p>
+      <p>Updated At: {{updatedAt}}</p> --}}
   	
   	</li>
 </ul>
