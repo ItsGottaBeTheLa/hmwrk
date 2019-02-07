@@ -1,9 +1,15 @@
-html{
+html,
+body{
+    height: 100%;
+}
+#image1{
     background-image: url("../public/images/whiteboard.jpg");
     position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}#maininfo{
+    height: 100%;
+}
+#maininfo{
     margin-left: auto;
     margin-right: auto;
     padding-top: 20px;
