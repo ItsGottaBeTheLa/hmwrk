@@ -25,17 +25,17 @@ module.exports = function(app) {
     });
   });
 
-  // Add a new assignment
-  app.post("/api/assignment", function(req, res) {
-    db.Assignment.create(req.body).then(function(dbAssignment) {
-      res.json(dbAssignment);
-      return;
-    });
-  });
+  // // Add a new assignment
+  // app.post("/api/assignment", function(req, res) {
+  //   db.Assignment.create(req.body).then(function(dbAssignment) {
+  //     res.json(dbAssignment);
+  //     return;
+  //   });
+  // });
 
   // POST route for saving a new assignment
   app.post("/api/assignment", function(req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     db.Assignment.create({
       assignmentName: req.body.assignmentName,
       type: req.body.type,
@@ -43,13 +43,12 @@ module.exports = function(app) {
       assignmentDetails: req.body.assignmentDetails,
       dueDate: req.body.dueDate,
       isRequired: req.body.isRequired
-    })
-      .then(function(dbAssignment) {
-        res.json(dbAssignment);
-      })
-      .catch(function(err) {
-        res.json(err);
-      });
+    }).then(function(dbAssignment) {
+      res.render("index", { assignments: dbAssignment });
+    });
+    // .catch(function(err) {
+    //   res.json(err);
+    // });
   });
 
   // PUT route for updating assignments
@@ -59,7 +58,7 @@ module.exports = function(app) {
         id: req.body.id
       }
     }).then(function(dbAssignment) {
-      res.json(dbAssignment);
+      res.render("index", { assignments: dbAssignment });
     });
   });
 
