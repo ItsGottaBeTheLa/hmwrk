@@ -40,3 +40,15 @@ thead{
 #infotb{
     font-size: 22px;
 }
+footer{
+    clear: both;
+    text-align: center;
+    position: fixed;
+    left: 0px;
+    bottom: 20px;
+    height: 30px;
+    width: 100%;
+    font-size: 18px;
+    color: #eeeeee;
+    padding-top: 20px;
+}
