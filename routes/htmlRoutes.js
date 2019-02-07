@@ -43,18 +43,16 @@ module.exports = function(app) {
     res.render("commands", { commands: commands });
   });
 
-  app.get("/api/update/:id", function(req, res) {
+  app.get("/update/:id", function(req, res) {
     db.Assignment.findOne({
       where: {
-        dueDate: {
-          $gt: db.Sequelize.fn("NOW")
-        }
-      },
-      order: [["dueDate", "ASC"]]
+        id: req.params.id
+      }
+      // order: [["dueDate", "ASC"]]
     }).then(function(dbAssignment) {
       // console.log("WORKING UPDATE: ", dbAssignment);
       // res.json(dbAssignment);
-      res.render("single-assign", { assignments: dbAssignment });
+      res.render("single-assign", { dbAssignment: dbAssignment });
     });
   });
 
