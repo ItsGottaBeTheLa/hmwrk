@@ -10,7 +10,8 @@ module.exports = function(app) {
       res.json(dbAssignment);
     });
   });
-  //Get next upcoming assignment
+
+  // Get next upcoming assignment
   app.get("/api/nextassignment", function(req, res) {
     db.Assignment.findOne({
       where: {
@@ -20,6 +21,53 @@ module.exports = function(app) {
       },
       order: [["dueDate", "ASC"]]
     }).then(function(dbAssignment) {
+      res.json(dbAssignment);
+    });
+  });
+
+  // Add a new assignment
+  app.post("/api/assignment", function(req, res) {
+    db.Assignment.create(req.body).then(function(dbAssignment) {
+      res.json(dbAssignment);
+      return;
+    });
+  });
+
+  // POST route for saving a new assignment
+  app.post("/api/add", function(req, res) {
+    console.log(req.body);
+    db.Assignment.create({
+      assignmentName: req.body.assignmentName,
+      type: req.body.type,
+      completed: req.body.completed,
+      assignmentDetails: req.body.assignmentDetails,
+      dueDate: req.body.dueDate,
+      isRequired: req.body.isRequired
+    })
+      .then(function(dbAssignment) {
+        res.json(dbAssignment);
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
+  });
+
+  // PUT route for updating posts
+  app.put("/api/assignment", function(req, res) {
+    db.Post.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+
+  // Delete an anssignment by id
+  app.delete("/api/assignment/:id", function(req, res) {
+    db.Assignment.destroy({ where: { id: req.params.id } }).then(function(
+      dbAssignment
+    ) {
       res.json(dbAssignment);
     });
   });
@@ -46,23 +94,6 @@ module.exports = function(app) {
         };
         res.json(data);
       });
-    });
-  });
-
-  // Create a new assignment
-  app.post("/api/assignment", function(req, res) {
-    db.Assignment.create(req.body).then(function(dbAssignment) {
-      res.json(dbAssignment);
-      return;
-    });
-  });
-
-  // Delete an anssignment by id
-  app.delete("/api/assignment/:id", function(req, res) {
-    db.Assignment.destroy({ where: { id: req.params.id } }).then(function(
-      dbAssignment
-    ) {
-      res.json(dbAssignment);
     });
   });
 };

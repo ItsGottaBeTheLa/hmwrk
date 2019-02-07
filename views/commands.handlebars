@@ -6,20 +6,20 @@
     <table>
         <thead> 
             <th>Commands</th> 
-            <th>Input</th> 
-            <th>What the command does</th> 
+            <th id="tag1">Input</th> 
+            <th id="tag3">What the command does</th> 
         </thead> 
         <tbody> 
             {{#commands}} 
-            <tr> 
+            <tr id="dfortb"> 
                 <td>{{hwCommand}}</td> 
-                <td>{{hwCommand2}}</td> 
-                <td>{{whatHwDoes}}</td> 
+                <td id="tag2a">{{hwCommand2}}</td> 
+                <td id="tag2">{{whatHwDoes}}</td> 
             </tr> 
-            <tr> 
+            <tr id="infotb"> 
                 <td>{{jokeCommand}}</td> 
-                <td>{{jokeCommand2}}</td> 
-                <td>{{whatJokeDoes}}</td> 
+                <td id="tag3b">{{jokeCommand2}}</td> 
+                <td id="tag2b">{{whatJokeDoes}}</td> 
             </tr> 
             {{/commands}} 
         </tbody> 
