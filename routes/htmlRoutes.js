@@ -10,36 +10,40 @@ var commands = {
   whatJokeDoes: "Display's a \"yo mama joke \" from their API"
 }
 
+
 var db = require("../models");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
+var isAdministrator = require("../config/middleware/isAdministrator");
 
 module.exports = function(app) {
   // console.log(instructions);
   // Load index page
-  app.get("/", function(req, res) {
-    res.render("admin", {
-      user: req.user
-    });
-  });
+  app.get(
+    "/",
+    require("connect-ensure-login").ensureLoggedIn({
+      redirectTo: "/login/github",
+      setReturnTo: false
+    }),
+    isAdministrator,
+    function(req, res) {
+      res.render("admin", {
+        user: req.user
+      });
+    }
+  );
 
- app.get("/commands", function(req,res) {
-   console.log(commands);
-   res.render("commands", {
-    commands:commands
-   });
- });
-
-  app.get("/login", function(req, res) {
-    res.render("login");
-  });
-
-  app.get("/api/amend", function(req, res) {
+  app.get("/api/amend", isAdministrator, function(req, res) {
     db.Assignment.findAll({}).then(function(dbAssignment) {
       // res.json(dbAssignment);
       res.render("index", { assignments: dbAssignment });
     });
   });
 
-  app.get("/api/update", function(req, res) {
+  app.get("/commands", isAuthenticated, function(req, res) {
+    res.render("commands", { commands: commands });
+  });
+
+  app.get("/api/update/:id", function(req, res) {
     db.Assignment.findOne({
       where: {
         dueDate: {
@@ -69,7 +73,7 @@ module.exports = function(app) {
           $gt: db.Sequelize.fn("NOW")
         }
       },
-      order: [["dueDate", "DESC"]]
+      order: [["dueDate", "ASC"]]
     }).then(function(dbAssignment) {
       console.log("WORKING VALUE: ", dbAssignment.dataValues);
       // res.json(dbAssignment);
@@ -87,16 +91,6 @@ module.exports = function(app) {
     }),
     function(req, res) {
       res.redirect("/");
-    }
-  );
-
-  app.get(
-    "/profile",
-    require("connect-ensure-login").ensureLoggedIn(),
-    function(req, res) {
-      res.render("profile", {
-        user: req.user
-      });
     }
   );
 };

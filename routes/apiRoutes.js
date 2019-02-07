@@ -1,5 +1,5 @@
 var db = require("../models");
-var signVerification = require("../js/signVerification.js");
+var signVerification = require("../config/middleware/signVerification");
 var moment = require("moment");
 moment.locale();
 
@@ -34,7 +34,7 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new assignment
-  app.post("/api/add", function(req, res) {
+  app.post("/api/assignment", function(req, res) {
     console.log(req.body);
     db.Assignment.create({
       assignmentName: req.body.assignmentName,
@@ -52,14 +52,14 @@ module.exports = function(app) {
       });
   });
 
-  // PUT route for updating posts
-  app.put("/api/assignment", function(req, res) {
-    db.Post.update(req.body, {
+  // PUT route for updating assignments
+  app.put("/api/assignment/:id", function(req, res) {
+    db.Assignment.update(req.body, {
       where: {
         id: req.body.id
       }
-    }).then(function(dbPost) {
-      res.json(dbPost);
+    }).then(function(dbAssignment) {
+      res.json(dbAssignment);
     });
   });
 
@@ -72,28 +72,35 @@ module.exports = function(app) {
     });
   });
 
+  //bot endpoint
+  app.post("/api", function(req, res) {
+    res.send(
+      "curl -F file=@homework-instructions.md, @homework-instructions2.md -F 'initial_comment=Homework Week2' -F channels=CFTQNUSGJ -H 'Authorization: Bearer xoxb-533280073296-538087922165-LZ5aLOywdyxZZ9d7u0owakcf' https://slack.com/api/files.upload "
+    );
+  });
+
   //slack slash command endpoint
-  app.post("/slack/assignment", function(req, res) {
-    signVerification(req, res, function() {
-      db.Assignment.findOne({
-        where: {
-          dueDate: {
-            $gt: db.Sequelize.fn("NOW")
-          }
-        },
-        order: [["dueDate", "ASC"]]
-      }).then(function(dbAssignment) {
-        var data = {
-          // eslint-disable-next-line camelcase
-          response_type: "in-channel",
-          text:
-            "The Next Assignment is " +
-            dbAssignment.assignmentName +
-            " and is due on " +
-            moment(dbAssignment.dueDate).format("MMMM Do YYYY, h:mm a")
-        };
-        res.json(data);
-      });
+  app.post("/slack/assignment", signVerification, function(req, res) {
+    db.Assignment.findOne({
+      where: {
+        dueDate: {
+          $gt: db.Sequelize.fn("NOW")
+        }
+      },
+      order: [["dueDate", "ASC"]]
+    }).then(function(dbAssignment) {
+      var data = {
+        // eslint-disable-next-line camelcase
+        response_type: "in-channel",
+        text:
+          "The Next Assignment is " +
+          dbAssignment.assignmentName +
+          " and is due on " +
+          moment(dbAssignment.dueDate).format("MMMM Do YYYY, h:mm a") +
+          " here is the link: " +
+          dbAssignment.assignmentLink
+      };
+      res.json(data);
     });
   });
 };

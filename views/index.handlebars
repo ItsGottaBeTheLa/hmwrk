@@ -11,6 +11,9 @@
 
  <link rel="stylesheet" href="/css/style.css">
 
+ <br>
+ <br>
+
 <h1>HMWRK App</h1>
 
 <h2>Manage assignments with this app</h2>
@@ -32,14 +35,15 @@
       
       <button data-id="{{this.id}}" class="delassignment">Delete</button>
 
-      <a href="/{{this.id}}">Update this assignment</a>
+      <a href="/update:{{this.id}}">Update this assignment</a>
   	</li>
   {{/each}}
 </ul>
 <br>
 <br>
 
-<h2>Add a assignment</h2>
+<h2 class ="add">Add an assignment here: </h2>
+<br>
 
 <form class="create-form">
 
@@ -72,5 +76,5 @@
   </div>
   
 
-  <button type="submit">Add assignment</button>
+  <button type="submit" class="buttonadd">Add assignment</button>
 </form>
