@@ -6,7 +6,7 @@ CREATE DATABASE hmwrkdb;
 
 use hmwrkdb;
 
-CREATE TABLE assignments (
+CREATE TABLE Assignments (
     id INTEGER NOT NULL AUTO_INCREMENT,
     assignmentName VARCHAR(250) NOT NULL,
     type VARCHAR(25) NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE assignments (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE users (
+CREATE TABLE Users (
     id INTEGER NOT NULL AUTO_INCREMENT,
     userName VARCHAR(250) NOT NULL,
     isAdmin BOOLEAN NOT NULL,
