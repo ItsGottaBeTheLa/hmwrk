@@ -3,8 +3,7 @@ html{
     position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-table{
+}#maininfo{
     margin-left: auto;
     margin-right: auto;
     padding-top: 20px;
@@ -12,7 +11,7 @@ table{
 }
 #heading{
     padding-top: 25px;
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Permanent Marker', cursive
 }
 thead{
     font-size: 30px;
