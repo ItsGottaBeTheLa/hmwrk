@@ -2,6 +2,8 @@
 
 ![HMWRK](./public/images/hmwrk.jpg)
 
+![HMWRK_bot](./public/images/hmwrkbot.gif)
+
 [Deployed Site](https://pacific-ridge-99694.herokuapp.com/)
 
 ### Overview
